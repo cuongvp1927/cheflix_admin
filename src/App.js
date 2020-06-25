@@ -1,7 +1,8 @@
 import * as React from "react";
 import { fetchUtils, Admin, Resource, ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
-import {UsersList, UsersEdit} from './Users/UserList'
+import {UsersList, UsersEdit, UsersCreate} from './Users'
+import {ClassesList, ClassesEdit, ClassesCreate} from './Classes'
 
 // const httpClient = (url, options = {}) => {
 //   if (!options.headers) {
@@ -23,7 +24,8 @@ const App = () => {
   .then(response => console.log(response));
   return(
     <Admin dataProvider={dataProvider} >
-        <Resource name="users" list={UsersList} edit={UsersEdit}/>
+        <Resource name="users" list={UsersList} edit={UsersEdit} create={UsersCreate}/>
+        <Resource name="classes" list={ClassesList} edit={ClassesEdit} create={ClassesCreate}/>
     </Admin>
 )};
 export default App;
