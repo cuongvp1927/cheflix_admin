@@ -3,7 +3,7 @@ import { fetchUtils, Admin, Resource, ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import {UsersList, UsersEdit, UsersCreate} from './Users'
 import {ClassesList, ClassesEdit, ClassesCreate} from './Classes'
-
+import authProvider from './authProvider';
 // const httpClient = (url, options = {}) => {
 //   if (!options.headers) {
 //     options.headers = new Headers({Accept: 'application/json'});
@@ -23,7 +23,7 @@ const App = () => {
   })
   .then(response => console.log(response));
   return(
-    <Admin dataProvider={dataProvider} >
+    <Admin dataProvider={dataProvider} authProvider={authProvider}  >
         <Resource name="users" list={UsersList} edit={UsersEdit} create={UsersCreate}/>
         <Resource name="classes" list={ClassesList} edit={ClassesEdit} create={ClassesCreate}/>
     </Admin>
